@@ -17,3 +17,4 @@ Theorem 14: theorem14.md, proof14.md, test14.py, results14.txt
 Theorem 15: theorem15.md, proof15.md, test15.py, results15.txt
 Theorem 16: theorem16.md, proof16.md, test16.py, results16.txt
 Theorem 17: theorem17.md, proof17.md, test17.py, results17.txt
+wip bogie
