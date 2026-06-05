@@ -1,0 +1,17 @@
+Differential Suffix Propagation:
+Definitions:
+    Let P_key = R * Q * P be the target matrix sequence leading to a leaf node v_key.
+    Let P_shadow = R * Q_swap * P be a shadow matrix sequence differing from P_key by a single swap at depth d.
+    Let v_parent = P * v_root be the parent node at depth d along the key path where the swap occurs.
+    Let (Q, Q_swap) be an ordered pair of distinct generators restricted to the adjacent branch sets {A, B} or {B, C}.
+    Let R = G_leaf * ... * G_(d+3) * G_(d+2) be the remaining suffix string of matrices applied after the swap point to maintain the correct right-to-left order of matrix multiplication.
+    Let α be the scalar geometric property of the parent node:
+    If the swap involves B and C, then α = a_parent.
+    If the swap involves A and B, then α = b_parent.
+    Let δ be the constant structural divergence vector corresponding to the swap type (δ_a for B vs C, or δ_b for A vs B).
+    Let σ be the directional sign operator defined by the ordered pair of the swap:
+        σ = 1 if (Q, Q_swap) = (C, B) or (A, B).
+        σ = -1 if (Q, Q_swap) = (B, C) or (B, A).
+    Let v_key and v_shadow be the resulting leaf state vectors.
+Description:
+    Provides an exact linear error vector formula at the leaf level when a single traversal path deviates from a key sequence via an adjacent generator swap. The total algebraic discrepancy at the leaf level (v_shadow - v_key) is exactly equal to the signed product of the directional operator σ, the scalar geometric property of the parent node α, and the transformation of the structural divergence vector δ under the remaining suffix sequence R. This serves as a global algebraic tracking tool to calculate the structural distance between parallel matrix branches without recomputing entire paths.

@@ -1,0 +1,3 @@
+Modular Orbit Graph (Finite State Machine):
+The state space v = (ℤ/Mℤ)^3 has a finite cardinality of M^3. The factor state matrices A, B, and C have determinants of ±1. Since gcd(det(G), M) = 1, these matrices are invertible elements of the group GL(3, ℤ/Mℤ). Invertibility ensures that each generator acts as a permutation of the finite state space.
+Since all projected PPT nodes share the same quadratic invariant v[0]⋅v[1]≡v[2]^2 (mod M), the group action is restricted to this modular quadric surface. The invertibility of the generators ensures that this surface (the "null-cone") is a single strongly connected orbit.

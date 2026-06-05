@@ -1,0 +1,5 @@
+Monotonic Growth
+Examine the third row of each transition matrix acting on the state vector v=[p^2,q^2,a]^T.
+For A: a_A​=2p^2+a. Since p≥1, a_A​>a.
+For B: a_B​=2q^2+a. Since q>1, a_B​>a.
+For C: a_C​=2q^2−a. Since a=pq and q>p, q^2>a. Thus, a_C​>2a−a=a.

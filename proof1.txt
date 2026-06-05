@@ -1,3 +1,4 @@
+Linearized Algebraic State Transition:
 Use the PPT identities p^2 = c-b and q^2 = c+b. Derive the rows of the matrices by expressing the child factors in terms of the parent factors.
 For matrix B, the new smaller factor p_B equals the old larger factor q. Thus p_B^2 = q^2. This yields row 1 of B: [0, 1, 0]. The new larger factor is q_B = 2q + p. Squaring this yields q_B^2 = 4q^2 + 4pq + p^2. Substituting pq=a gives q_B^2 = p^2 + 4q^2 + 4a. This yields row 2 of B: [1, 4, 4]. The new odd leg is a_B = a + 2b + 2c. Since b+c = q^2, this simplifies to a_B = a + 2q^2. This yields row 3 of B: [0, 2, 1].
 Similar derivations hold for matrix A and matrix C. For matrix C, the new larger factor is q_C​=2q−p, which yields the negative coefficients in rows 2 and 3.

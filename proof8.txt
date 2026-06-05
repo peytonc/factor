@@ -1,0 +1,4 @@
+Prime Modular Orbit Cardinality:
+The total number of parameter pairs (p,q) in the 2D space modulo M is M^2. Excluding the zero vector (0,0) leaves M^2−1 pairs. Since M is an odd prime, (p,q) is never equal to (−p,−q) for any non-zero pair.
+For the zero residue (v[2] ≡ 0), this implies the product of factors pq ≡ 0. Since M is prime, either p or q must be 0. Geometrically this corresponds to the axes of the (p,q) parameter space. There are M-1 vectors on the p-axis and M-1 on the q-axis. Summing and adjusting for sign equivalence yields M-1 states.
+For any non-zero residue k, fixing one coordinate p (M-1 choices) uniquely determines q (since q = kp^-1). This results in M-1 vectors, which form (M-1)/2 sign-invariant states.

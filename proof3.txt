@@ -1,0 +1,4 @@
+Non-Trivial Unique Path (Unique Existence):
+Euclid's formula states a = (m-n)(m+n).
+Setting m-n=p and m+n=q yields a unique solution for m,n (and thus b,c) for every factor pair.
+Because the Berggren tree provides a one-to-one mapping between Primitive Pythagorean Triples and the set of all coprime factor pairs (p, q) of odd parity, and since the semiprime a_target possesses exactly one factor pair where p > 1, there exists exactly one non-trivial path in the tree corresponding to this node.

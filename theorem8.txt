@@ -1,0 +1,8 @@
+Prime Modular Orbit Cardinality:
+Definitions:
+    Let M ∈ ℤ be an odd prime modulus​​.
+    |Orbit(M)| = (M^2 - 1) / 2 is the set cardinality of reachable states modulo M.
+    |{v∈Orbit(M) : v[2] ≡ 0 (mod M)}| = M - 1 is the set cardinality of reachable states modulo M, such that v[2] ≡ 0 (mod M).
+    |{v∈Orbit(M) : v[2] ≡ k (mod M)}| = (M-1)/2 for each k ∈ {1, ..., M-1}, is the set cardinality of reachable states modulo M, such that v[2] ≡ k (mod M).
+Description:
+    For an odd prime modulus M, the PPT tree projection explores the quadratic state space over the finite field of M. The theorem provides the exact count of states where the accumulated odd leg (v[2]) matches a specific residue, describing the probability distribution of the target residue within the orbit.

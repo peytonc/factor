@@ -1,3 +1,4 @@
+Linearized Algebraic State Transition:
 Definitions:
     Let v_(d+1) = G_d * v_d be the state transition to a child node at depth d+1.
 Description:

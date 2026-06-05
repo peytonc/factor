@@ -1,0 +1,3 @@
+Modular Algebraic State Transition:
+The state transition v_(d+1) ​= G_d * ​v_d​ represents a linear transformation in ℤ^3. The natural projection map ϕ:ℤ→ℤ/Mℤ is a ring homomorphism, which implies that it commutes with matrix multiplication, satisfying ϕ(G_d*​v_d​​)=ϕ(G_d​)*ϕ(v_d​).
+By induction, the state at any depth d is given by the composite transformation of the generator sequence modulo M: v_d ​≡ (∏ ​G_i) * v_root ​(mod M) for i=0..d−1. Since the cardinality of (ℤ/Mℤ)^3 is finite (M^3), the infinite sequence of transitions is mapped into a finite set of states.

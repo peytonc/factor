@@ -1,0 +1,12 @@
+Square-Free Modular Orbit Decomposition:
+Definitions:
+    Let M be any odd square-free integer with the prime factorization M = p_1 * p_2 * ... * p_n, where p_i are distinct primes.
+    Let O_M = Orbit(M) be the set of reachable states in the PPT graph modulo M.
+    Let O_(p_i) = Orbit(p_i) be the set of reachable states in the PPT graph modulo the prime factor p_i.
+    Let Φ : O_M → O_(p_1) × O_(p_2) × ... × O_(p_n) be the canonical projection map defined by v ↦ (v mod(p_1), v mod(p_2), ..., v mod(p_n)).
+    O_M ≅ ∏ O_(p_i) for i=1..n, be the modular orbit decomposition.
+    |O_M| = ∏ |O_(p_i)| = ∏ (p_i^2 - 1)/2 for i=1..n, be the modular orbit cardinality.
+Description:
+    The modular orbit of a square-free modulus M is isomorphic to the Cartesian product of the modular orbits of its prime factors. When M has no repeated prime factors, the global structure of the orbit space is uniquely determined by the atomic structures of its prime factors acting independently.
+Corollary:
+    Since the generators {A,B,C} are elements of GL(3,ℤ), their inverses {A^−1,B^−1,C^−1} are also integer matrices. Therefore, the isomorphism Φ preserves both forward transitions (v_child​=G⋅v_parent​) and inverse transitions (v_parent​=G^−1⋅v_child​). The predecessors of a state modulo M are uniquely determined by the predecessors of its prime projections.

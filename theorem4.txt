@@ -1,0 +1,7 @@
+Monotonic Growth:
+Definitions:
+    Let v_(d+1) = G_d * v_d be the state transition to a child node at depth d+1.
+    Let a_d = v_d[2] be the odd leg at depth d.
+    a_(d+1) > a_d[2] is the growth inequality.
+Description:
+    The odd leg strictly a_d increases at every step of the tree.

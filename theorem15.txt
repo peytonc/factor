@@ -1,0 +1,27 @@
+Multi-Swap Differential:
+Definitions:
+    Let P_key be the chronological sequence of generators leading to a leaf node v_key.
+    Let P_shadow be a parallel sequence differing from P_key by k distinct adjacent matrix swaps at depths d_1, d_2, ..., d_k.
+    Let v_parent_m be the key-path node at depth d_m immediately preceding the m-th swap point.
+    Let alpha_m be the localized scalar parameter of v_parent_m:
+        If the swap is B <-> C, alpha_m = a_parent_m (the odd leg).
+        If the swap is A <-> B, alpha_m = b_parent_m (the even leg).
+    Let delta_m be the constant sibling-divergence vector from Theorem 11:
+        delta_a = [ 0, 8, 2 ]^T for B <-> C swaps.
+        delta_b = [ 2, 6, 4 ]^T for A <-> B swaps.
+    Let e_m = delta_m / 2 be the half-divergence vector:
+        e_a = [ 0, 4, 1 ]^T
+        e_b = [ 1, 3, 2 ]^T
+    Let M_m = 2 * alpha_m be the modular base scalar for the m-th swap.
+    Let sigma_m be the directional swap sign parameter:
+        sigma_m = +1 if the swap transition is (C -> B) or (A -> B).
+        sigma_m = -1 if the swap transition is (B -> C) or (B -> A).
+    Let R_m be the shadow-path suffix matrix product consisting of all subsequent generators applied after depth d_m down to the leaf node R_m = G_n * G_(n-1) * ... * G_(d_m+1)
+    Let v_key and v_shadow be the final 3-D algebraic state vectors evaluated at the leaf.
+Description:
+    The exact 3-dimensional vector difference between the shadow path leaf node (v_shadow) and the key path leaf node (v_key) is given by the linear combination of the independently propagated divergence vectors.
+    Instead of causing chaotic or non-linear divergence, multiple path deviations accumulate via perfect linear rrlationship. This exact difference vector lies strictly within the discrete integer vector lattice Lambda defined by the integer span of the propagated half-divergence vectors scaled by M_m:
+        v_shadow - v_key = Σ [ sigma_m * alpha_m * (R_m * delta_m) ]
+                         = Σ [ sigma_m * M_m * (R_m * e_m) ]
+        where the summation runs from m = 1 to k, and the vector difference
+        is an explicit element of the lattice Lambda = Z-span{ M_m * (R_m * e_m) }.

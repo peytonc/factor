@@ -1,0 +1,12 @@
+Multiple Swaps Modular Congruence:
+Definitions:
+    Let P_key be the target sequence of generators leading to a leaf node v_key.
+    Let P_shadow be a sequence differing from P_key by k distinct swaps (restricted to A vs B or B vs C) at depths d_1, d_2, ..., d_k.
+    Let v_parent_i be the parent node at depth d_i along the key path P_key where the i-th swap occurs.
+    Let M_i be the modular consequence of the i-th swap:
+        If the swap is B vs C, M_i = 2 * a_parent_i (odd leg of v_parent_i).
+        If the swap is A vs B, M_i = 2 * b_parent_i (even leg of v_parent_i).
+    Let v_key and v_shadow be the resulting leaf state vectors.
+    v_shadow ≡ v_key (mod GCD(M_1, M_2, ..., M_k)).
+Description:
+    When a traversal path deviates from a key path via multiple substitutions (swaps) at different depths, the resulting leaf node maintains a congruence relative to the key node. The modulus of this congruence is the Greatest Common Divisor (GCD) of the moduli associated with each individual swap. This implies that the shadow path remains "locked" to the key path within the lattice grid defined by the shared divisors of the divergence points.
