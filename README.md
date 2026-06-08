@@ -1,22 +1,146 @@
-Research an efficient algorithm to navigate the Berggren tree of Primitive Pythagorean Triples (PPT) and find the non-trivial path to the node containing a_target. The PPT can only be exhaustively searched to a limited depth. Search for a specific node in the PPT tree where the first coordinate a_target equals a known, odd, semiprime integer whose factors are unknown. Only a limited shallow tree search can be performed because a_target's tree depth is extremely large.
+# Factorization via PPT Tree Navigation
 
-Global Definitions:
-Let m = (q+p)/2 = (sqrt(c+b)+sqrt(c-b))/2 be a Euclid formula parameter.
-Let n = (q-p)/2 = (sqrt(c+b)-sqrt(c-b))/2, with m>n>0 and gcd(m,n)=1, be a Euclid formula parameter.
-Let p = m − n = sqrt(c-b) and is the smaller factor of a.
-Let q = m + n = sqrt(c+b) and is the larger factor of a, with 1<p<q.
-Let a = m^2 − n^2 = p*q and is the odd leg.
-Let b = 2mn = (q^2 - p^2)/2 and is the even leg.
-Let c = m^2 + n^2 = (p^2 + q^2)/2 and is the hypotenuse.
-Let a_target = large known odd semiprime integer (representing the odd leg a).
-Let m_target, n_target, p_target, and q_target be the non-trivial integers whose values are unknown.
-Let Berggren_A = [ [ 1, -2, 2 ], [ 2, -1, 2 ], [ 2, -2, 3 ] ].
-Let Berggren_B = [ [ 1, 2, 2 ], [ 2, 1, 2 ], [ 2, 2, 3 ] ].
-Let Berggren_C = [ [ -1, 2, 2 ], [ -2, 1, 2 ], [ -2, 2, 3 ] ].
-Let A = [ [ 1, 0, 0 ], [ 4, 1, 4 ], [ 2, 0, 1 ] ] be the factor state matrix corresponding to Berggren_A.
-Let B = [ [ 0, 1, 0 ], [ 1, 4, 4 ], [ 0, 2, 1 ] ] be the factor state matrix corresponding to Berggren_B.
-Let C = [ [ 0, 1, 0 ], [ 1, 4, -4 ], [ 0, 2, -1 ] ] be the factor state matrix corresponding to Berggren_C.
-Let G ∈ {A​, B​, C​} be a selected generator in the set of state transition matrices.
-Let v_root = [1, 9, 3]^T be the root of the projected PPT tree.
-Let v = [p^2, q^2, a]^T ∈ ℤ^3 be the algebraic state vector of a PPT node.
-Let P = G_1 * G_2 * ... * G_d, where G_i ∈ { A, B, C }, be a sequence of generators applied to the root v_root to reach depth d.
+Factor odd semiprimes by navigating the **Berggren tree of Primitive Pythagorean
+Triples (PPTs)** with linear factor-state vectors. Each tree node is encoded as a
+state vector `v = [p^2, q^2, a]^T`, and the three Berggren generators are realized
+as integer matrices **A**, **B**, **C** acting on `v`. The research goal is to locate
+the node whose odd leg equals a known semiprime `a_target` whose factors are unknown,
+using only shallow tree search plus modular and differential structure.
+
+> **Symbol reference:** every variable used across the repository is defined once in
+> [`docs/glossary.md`](docs/glossary.md). Theorem and proof files reference it instead
+> of re-defining symbols.
+
+## Project Goal
+
+- **Input:** an odd semiprime `a_target` (the odd leg `a` of an unknown PPT node).
+- **Output:** the non-trivial factor pair `(p_target, q_target)` with `1 < p_target < q_target`.
+- **Method:** navigate / constrain the PPT tree using the catalogued theorems below.
+
+## Theorem Catalog
+
+| ID | Title | Core Purpose | Depends On |
+| :-- | :-- | :-- | :-- |
+| [T01](theorems/T01-linearized-state-transition.md) | Linearized Algebraic State Transition | Maps PPT geometry (c,b) to algebraic factors via linear matrices A/B/C acting on v=[p^2,q^2,a]^T. | — |
+| [T02](theorems/T02-trivial-path-existence.md) | Trivial Path (Unique Existence) | The trivial factorization 1*a_target sits on the all-A branch at depth (a_target - 3)/2. | T01 |
+| [T03](theorems/T03-nontrivial-path-existence.md) | Non-Trivial Unique Path (Unique Existence) | Exactly one non-trivial path reaches the (p_target, q_target) node; it must use at least one B or C transition. | T01 |
+| [T04](theorems/T04-monotonic-growth.md) | Monotonic Growth | The odd leg a strictly increases at every transition, guaranteeing a monotonic descent. | T01 |
+| [T05](theorems/T05-modular-state-transition.md) | Modular Algebraic State Transition | Projects the infinite tree into a finite ring (Z/MZ)^3 via a ring homomorphism that commutes with the generators. | T01 |
+| [T06](theorems/T06-modular-orbit-graph.md) | Modular Orbit Graph (Finite State Machine) | The modular state graph is strongly connected because the generators are invertible permutations of a finite space. | T05 |
+| [T07](theorems/T07-prime-axis-alignment.md) | Prime Modular Axis Alignment | For prime M, a zero odd-leg residue holds iff exactly one factor (p or q) is congruent to zero. | T06 |
+| [T08](theorems/T08-prime-orbit-cardinality.md) | Prime Modular Orbit Cardinality | Gives exact state counts per odd-leg residue class in the prime modular orbit. | T06, T07 |
+| [T09](theorems/T09-squarefree-orbit-decomposition.md) | Square-Free Modular Orbit Decomposition | For square-free M, the orbit is isomorphic to the Cartesian product of its prime orbits (CRT). | T06, T08 |
+| [T10](theorems/T10-generalized-orbit-decomposition.md) | Generalized Modular Orbit Decomposition | Generalizes the decomposition to prime-power (Hensel-lifted) atomic moduli for any odd M. | T09 |
+| [T11](theorems/T11-sibling-divergence.md) | Sibling Divergence | The difference between sibling children is strictly linear in the parent's odd leg (B vs C) or even leg (B vs A). | T01 |
+| [T12](theorems/T12-path-bc-congruence.md) | Path B/C Modular Congruence | A B<->C swap keeps every descendant congruent to the key path modulo 2*a_parent. | T11 |
+| [T13](theorems/T13-path-ab-congruence.md) | Path A/B Modular Congruence | An A<->B swap keeps every descendant congruent to the key path modulo 2*b_parent. | T11 |
+| [T14](theorems/T14-multiswap-congruence.md) | Multiple Swaps Modular Congruence | After k swaps, the leaf stays congruent to the key path modulo the GCD of the per-swap moduli. | T12, T13 |
+| [T15](theorems/T15-differential-suffix-propagation.md) | Differential Suffix Propagation | Gives the exact single-swap leaf error vector: v_shadow - v_key = sigma * alpha * (R * delta). | T11 |
+| [T16](theorems/T16-geometric-parent-determinism.md) | Geometric Parent Determinism | For a node with known (p,q), the generating parent's matrix is read off from the ratio lambda = q/p. | T01 |
+| [T17](theorems/T17-multiswap-differential.md) | Multi-Swap Differential | Gives the exact 3D leaf difference for k swaps as a linear combination lying inside the lattice Lambda. | T11, T15 |
+
+Each row links to its statement in [`theorems/`](theorems/); every statement links
+to its companion proof in [`proofs/`](proofs/).
+
+## Dependency Graph
+
+The logical reading / validation order is captured below (see
+[`docs/dependency-graph.md`](docs/dependency-graph.md) for the annotated version and a
+topological reading order). Edges are derived from explicit cross-references in the
+source text plus the foundational dependency on the state representation (T01).
+
+```mermaid
+graph TD
+    subgraph Foundations
+    T01["T01 · State Transition"]
+    T02["T02 · Trivial Path"]
+    T03["T03 · Non-Trivial Path"]
+    T04["T04 · Monotonic Growth"]
+    end
+    subgraph Modular_Theory
+    T05["T05 · Modular Transition"]
+    T06["T06 · Orbit Graph"]
+    T07["T07 · Prime Axis Alignment"]
+    T08["T08 · Prime Cardinality"]
+    T09["T09 · Square-Free Decomp."]
+    T10["T10 · Generalized Decomp."]
+    end
+    subgraph Differential_and_Swap_Theory
+    T11["T11 · Sibling Divergence"]
+    T12["T12 · Path B/C Congruence"]
+    T13["T13 · Path A/B Congruence"]
+    T14["T14 · Multi-Swap Congruence"]
+    T15["T15 · Suffix Propagation"]
+    T16["T16 · Parent Determinism"]
+    T17["T17 · Multi-Swap Differential"]
+    end
+
+    T01 --> T02
+    T01 --> T03
+    T01 --> T04
+    T01 --> T05
+    T05 --> T06
+    T06 --> T07
+    T06 --> T08
+    T07 --> T08
+    T06 --> T09
+    T08 --> T09
+    T09 --> T10
+    T01 --> T11
+    T11 --> T12
+    T11 --> T13
+    T12 --> T14
+    T13 --> T14
+    T11 --> T15
+    T01 --> T16
+    T11 --> T17
+    T15 --> T17
+```
+
+## Repository Layout
+
+```
+ppt-factorization/
+├── README.md                  ← this central index (manifest)
+├── PULL_REQUEST.md            ← description of this restructuring PR
+├── docs/
+│   ├── glossary.md            ← single source of truth for all notation
+│   └── dependency-graph.md    ← annotated graph + topological reading order
+├── theorems/                  ← one .md per theorem statement (T01–T17)
+│   └── T<NN>-<slug>.md
+└── proofs/                    ← one .md per proof, paired 1:1 with a theorem
+    └── T<NN>-<slug>-proof.md
+```
+
+## File & Metadata Conventions
+
+These conventions exist so an AI agent (or a human) can build a dependency map by
+reading front-matter alone, without parsing the full mathematics of each file.
+
+**Naming.** Files are named `T<NN>-<semantic-slug>` so the filename itself carries
+meaning for search/embeddings (e.g. `T05-modular-state-transition.md`).
+
+**YAML front-matter.** Every theorem and proof file begins with a machine-readable
+block:
+
+```yaml
+---
+id: T05                                   # stable identifier
+type: theorem                             # theorem | proof
+title: Modular Algebraic State Transition
+slug: modular-state-transition
+depends_on: [T01]                         # upstream results this builds on
+variables: [v, G, M, d]                   # symbols used (defined in glossary)
+status: proven                            # "a proof file exists in this repo"
+proof_file: ../proofs/T05-modular-state-transition-proof.md
+---
+```
+
+> `status: proven` means a written proof is present in `proofs/`. It records authoring
+> intent and the presence of a proof document — **not** an independent re-verification.
+> Maintainers should curate this field (e.g. `draft`, `under-review`, `proven`) as
+> review proceeds.
+
+**Cross-linking.** Theorem ⇄ proof links are relative; the `depends_on` list mirrors
+the edges in the dependency graph above, giving agents an explicit, machine-parsable
+map of the logical structure.

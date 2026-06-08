@@ -1,3 +1,0 @@
-Prime Modular Axis Alignment:
-The odd leg is defined as a=pq. Since M is an odd prime, the ring ℤ/Mℤ is a field and contains no zero divisors. By the zero-product property, a≡0 (mod M) implies p≡0 or q≡0.
-For a PPT, the factors p and q are always coprime with gcd(p,q)=1. Therefore, the prime M cannot divide both p and q simultaneously. Consequently, the state vector cannot be zero on both axes.

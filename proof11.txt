@@ -1,3 +1,0 @@
-Sibling Divergence:
-The difference matrix between sibling generators is Δ_a = B - C = [ [ 0, 0, 0 ], [ 0, 0, 8 ], [ 0, 0, 2 ] ]. Apply this difference matrix to the current state vector v = [ p^2, q^2, a ]^T, giving Δ_a * v = [ 0, 8a, 2a ]^T. Applying this to the parent yields the difference between the immediate children v_B - v_C = Δ_a * v_parent = [ 0, 8a, 2a ]^T = a_parent * δ_a.
-The difference matrix between sibling generators is Δ_b = B - A = [ [ -1, 1, 0 ], [ -3, 3, 0 ], [ -2, 2, 0 ] ]. Apply this difference matrix to the current state vector v = [ p^2, q^2, a ]^T, giving Δ_b * v = [ 2b, 6b, 4b ]^T. Applying this to the parent yields the difference between the immediate children v_B - v_A = Δ_b * v_parent = [ 2b, 6b, 4b ]^T = b_parent * δ_b.

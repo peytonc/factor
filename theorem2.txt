@@ -1,7 +1,0 @@
-Trivial Path (Unique Existence):
-Definitions:
-    Let d_target = (a_target - 3) / 2 be the tree depth of a_target on the A-branch.
-    Let a_target = (A^d_target * v_root)[2] be the trivial unique solution.
-    Let p = 1 and q = a_target define the trivial factorization on the A-branch.
-Description:
-    Generator A acts as the trivial operator. It preserves the smaller factor p=1 and increments the odd leg a linearly. This path contains every odd integer a≥3 exactly once. Therefore, a trivial solution for a_target​ always exists on the A-branch at depth d_target​ and corresponds to the factorization 1*atarget​.
