@@ -1,2 +1,0 @@
-Trivial Path (Unique Existence):
-From Theorem 1, row 3 of Matrix A implies a_next = a + 2p^2. The first row of Matrix A ([1, 0, 0]) ensures p_next^2 = p^2. Since p_root^2 = 1, p^2 is invariant. Substituting this into the recurrence yields a_next = a + 2.

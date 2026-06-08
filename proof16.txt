@@ -1,6 +1,0 @@
-Geometric Parent Determinism:
-Consider the forward transformations from a parent node (p_parent, q_parent) to a child node (p, q).
-The child factors for A are p=p_parent, q=2p_parent + q_parent. The ratio is λ = (2p_parent + q_parent)/p_parent = 2 + q_parent/p_parent. Since q_parent > p_parent in the parent, q_parent/p_parent > 1, implying λ > 3.
-The child factors for B are p=q_parent, q=2q_parent + p_parent. The ratio is λ = (2q_parent + p_parent)/q_parent = 2 + p_parent/q_parent. Since 0 < p_parent < q_parent, the term p_parent/q_parent ∈ (0, 1), implying 2 < λ < 3.
-The child factors for C are p=q_parent, q=2q_parent - p_parent. The ratio is λ = (2q_parent - p_parent)/q_parent = 2 - p_parent/q_parent. Since 0 < p_parent < q_parent, the term p_parent/q_parent ∈ (0, 1), implying 1 < λ < 2.
-Because the intervals (1, 2), (2, 3), and (3, ∞) are disjoint, and λ=3 uniquely identifies the root (1,3), the factor ratio λ uniquely identifies the generator that created the child.

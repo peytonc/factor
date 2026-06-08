@@ -1,6 +1,0 @@
-Modular Algebraic State Transition:
-Definitions:
-    Let M ∈ ℤ be an odd integer modulus such that 3≤M<sqrt(a_target)​​.
-    Let v_(d+1) ​≡ G_d * v_d (mod M) define the state transition over the finite ring (ℤ/Mℤ)^3.
-Description:
-    This theorem establishes a homomorphism mapping of the infinite PPT tree into a finite directed state-transition graph over ℤ/Mℤ. It asserts that the linear algebraic structure of Theorem 1 is preserved under modular arithmetic. By projecting the state transitions onto a finite ring, the trajectory of any path in the infinite tree is mapped to a path within a bounded modular state space.

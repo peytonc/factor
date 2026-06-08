@@ -1,3 +1,0 @@
-Path A/B Modular Congruence:
-Consider the base case at the divergence. By Theorem 11, the difference between the immediate children is v_B - v_A = b_parent * δ_b. Since δ_b = [2, 6, 4]^T contains only even integers, every component of the difference vector is a multiple of 2*b_parent. Thus, the immediate children are congruent modulo 2*b_parent.
-By the property of linear modular arithmetic v_(k+1) = G * v_k ≡ G * w_k = w_(k+1) (mod 2*b_parent). Since the base case is congruent, and the transition preserves congruence, the relationship holds for all subsequent descendants in the path.

@@ -1,5 +1,0 @@
-Non-Trivial Unique Path (Unique Existence)
-Definitions:
-    Let a_target = p_target * q_target denote the unique non-trivial factorization of the semiprime, satisfying 1 < p_target < q_target. This corresponds to exactly one node in the PPT tree distinct from the trivial A-branch solution.
-Description:
-    The non-trivial path is the unique finite sequence of state transition matrices starting at v_root and terminating at the node defined by the factors (p_target, q_target), which must contain at least one transition using generator B or C to satisfy the condition p_target > 1.
