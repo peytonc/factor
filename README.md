@@ -46,6 +46,24 @@ to its companion proof in [`proofs/`](proofs/).
 
 The logical reading / validation order Is defined in [`docs/dependency-graph.md`](docs/dependency-graph.md).
 
+## Numerical Validation
+
+Every theorem (T01–T17) has an automated numerical validator in
+[`validation/`](validation/). The suite is stdlib-only Python (no dependencies)
+and exercises each statement against exhaustive tree enumeration to a configurable
+depth plus seeded random deep-path trials:
+
+```bash
+python3 validation/run_validation.py            # defaults: depth 6, 400 trials, seed 20260610
+python3 validation/run_validation.py --depth 7 --trials 1000 --csv results.csv
+```
+
+The architecture (shared kernel vs. per-theorem logic), the exact checks performed
+per theorem, and honest scope notes on what numerics can and cannot certify are
+documented in [`validation/README.md`](validation/README.md). A GitHub Actions
+workflow ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs
+the suite on every push and pull request.
+
 ## File & Metadata Conventions
 
 These conventions exist so an AI agent (or a human) can build a dependency map by
