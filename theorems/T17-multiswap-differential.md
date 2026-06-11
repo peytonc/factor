@@ -23,7 +23,7 @@ proof_file: ../proofs/T17-multiswap-differential-proof.md
 - Let `e_m = delta_m / 2` be the half-divergence vector: `e_a = [0, 4, 1]^T`, `e_b = [1, 3, 2]^T`.
 - Let `M_m = 2*alpha_m` be the modular base scalar for the m-th swap.
 - Let `sigma_m` be the directional swap sign: `+1` if (C -> B) or (A -> B); `-1` if (B -> C) or (B -> A).
-- Let `R_m` be the shadow-path suffix matrix product of all subsequent generators applied after depth d_m down to the leaf: `R_m = G_n * G_(n-1) * ... * G_(d_m+1)`.
+- Let `R_m` be the shadow-path suffix matrix product of all subsequent generators applied after the swapped generator at depth d_m down to the leaf: `R_m = G_n * G_(n-1) * ... * G_(d_m+2)`.
 - Let `v_key` and `v_shadow` be the final 3-D algebraic state vectors evaluated at the leaf.
 
 ## Statement

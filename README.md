@@ -44,73 +44,25 @@ to its companion proof in [`proofs/`](proofs/).
 
 ## Dependency Graph
 
-The logical reading / validation order is captured below (see
-[`docs/dependency-graph.md`](docs/dependency-graph.md) for the annotated version and a
-topological reading order). Edges are derived from explicit cross-references in the
-source text plus the foundational dependency on the state representation (T01).
+The logical reading / validation order Is defined in [`docs/dependency-graph.md`](docs/dependency-graph.md).
 
-```mermaid
-graph TD
-    subgraph Foundations
-    T01["T01 · State Transition"]
-    T02["T02 · Trivial Path"]
-    T03["T03 · Non-Trivial Path"]
-    T04["T04 · Monotonic Growth"]
-    end
-    subgraph Modular_Theory
-    T05["T05 · Modular Transition"]
-    T06["T06 · Orbit Graph"]
-    T07["T07 · Prime Axis Alignment"]
-    T08["T08 · Prime Cardinality"]
-    T09["T09 · Square-Free Decomp."]
-    T10["T10 · Generalized Decomp."]
-    end
-    subgraph Differential_and_Swap_Theory
-    T11["T11 · Sibling Divergence"]
-    T12["T12 · Path B/C Congruence"]
-    T13["T13 · Path A/B Congruence"]
-    T14["T14 · Multi-Swap Congruence"]
-    T15["T15 · Suffix Propagation"]
-    T16["T16 · Parent Determinism"]
-    T17["T17 · Multi-Swap Differential"]
-    end
+## Numerical Validation
 
-    T01 --> T02
-    T01 --> T03
-    T01 --> T04
-    T01 --> T05
-    T05 --> T06
-    T06 --> T07
-    T06 --> T08
-    T07 --> T08
-    T06 --> T09
-    T08 --> T09
-    T09 --> T10
-    T01 --> T11
-    T11 --> T12
-    T11 --> T13
-    T12 --> T14
-    T13 --> T14
-    T11 --> T15
-    T01 --> T16
-    T11 --> T17
-    T15 --> T17
+Every theorem (T01–T17) has an automated numerical validator in
+[`validation/`](validation/). The suite is stdlib-only Python (no dependencies)
+and exercises each statement against exhaustive tree enumeration to a configurable
+depth plus seeded random deep-path trials:
+
+```bash
+python3 validation/run_validation.py            # defaults: depth 6, 400 trials, seed 20260610
+python3 validation/run_validation.py --depth 7 --trials 1000 --csv results.csv
 ```
 
-## Repository Layout
-
-```
-ppt-factorization/
-├── README.md                  ← this central index (manifest)
-├── PULL_REQUEST.md            ← description of this restructuring PR
-├── docs/
-│   ├── glossary.md            ← single source of truth for all notation
-│   └── dependency-graph.md    ← annotated graph + topological reading order
-├── theorems/                  ← one .md per theorem statement (T01–T17)
-│   └── T<NN>-<slug>.md
-└── proofs/                    ← one .md per proof, paired 1:1 with a theorem
-    └── T<NN>-<slug>-proof.md
-```
+The architecture (shared kernel vs. per-theorem logic), the exact checks performed
+per theorem, and honest scope notes on what numerics can and cannot certify are
+documented in [`validation/README.md`](validation/README.md). A GitHub Actions
+workflow ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs
+the suite on every push and pull request.
 
 ## File & Metadata Conventions
 
