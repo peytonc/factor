@@ -4,6 +4,7 @@ type: theorem
 title: Modular Orbit Graph (Finite State Machine)
 slug: modular-orbit-graph
 depends_on: [T05]
+notation: ../glossary.md
 variables: [M, G, Gamma, Orbit_M, v_root]
 status: proven
 proof_file: ../proofs/T06-modular-orbit-graph-proof.md
@@ -23,15 +24,3 @@ proof_file: ../proofs/T06-modular-orbit-graph-proof.md
 ## Statement
 
 Projects the infinite descent of the PPT tree into a finite directed graph modulo M. Because the matrices A, B, C are invertible and act on a finite state space, the modular graph is strongly connected.
-
-## Proof
-
-See [T06-modular-orbit-graph-proof.md](../proofs/T06-modular-orbit-graph-proof.md).
-
-## Dependencies
-
-- [T05 — Modular Algebraic State Transition](T05-modular-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
