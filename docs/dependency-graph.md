@@ -65,28 +65,6 @@ graph TD
     T15 --> T17
 ```
 
-## A Valid Topological Reading Order
-
-(Any linear extension of the graph works; this is one of them.)
-
-1. [T01 — Linearized Algebraic State Transition](../theorems/T01-linearized-state-transition.md)
-2. [T02 — Trivial Path (Unique Existence)](../theorems/T02-trivial-path-existence.md)
-3. [T03 — Non-Trivial Unique Path (Unique Existence)](../theorems/T03-nontrivial-path-existence.md)
-4. [T04 — Monotonic Growth](../theorems/T04-monotonic-growth.md)
-5. [T05 — Modular Algebraic State Transition](../theorems/T05-modular-state-transition.md)
-6. [T06 — Modular Orbit Graph (Finite State Machine)](../theorems/T06-modular-orbit-graph.md)
-7. [T07 — Prime Modular Axis Alignment](../theorems/T07-prime-axis-alignment.md)
-8. [T08 — Prime Modular Orbit Cardinality](../theorems/T08-prime-orbit-cardinality.md)
-9. [T09 — Square-Free Modular Orbit Decomposition](../theorems/T09-squarefree-orbit-decomposition.md)
-10. [T10 — Generalized Modular Orbit Decomposition](../theorems/T10-generalized-orbit-decomposition.md)
-11. [T11 — Sibling Divergence](../theorems/T11-sibling-divergence.md)
-12. [T12 — Path B/C Modular Congruence](../theorems/T12-path-bc-congruence.md)
-13. [T13 — Path A/B Modular Congruence](../theorems/T13-path-ab-congruence.md)
-14. [T14 — Multiple Swaps Modular Congruence](../theorems/T14-multiswap-congruence.md)
-15. [T15 — Differential Suffix Propagation](../theorems/T15-differential-suffix-propagation.md)
-16. [T16 — Geometric Parent Determinism](../theorems/T16-geometric-parent-determinism.md)
-17. [T17 — Multi-Swap Differential](../theorems/T17-multiswap-differential.md)
-
 ## Edge List (machine-readable)
 
 ```yaml
