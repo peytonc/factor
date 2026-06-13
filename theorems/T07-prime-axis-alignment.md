@@ -4,6 +4,7 @@ type: theorem
 title: Prime Modular Axis Alignment
 slug: prime-axis-alignment
 depends_on: [T06]
+notation: ../glossary.md
 variables: [M, v, B_M, I_M, X_axes, p, q, a]
 status: proven
 proof_file: ../proofs/T07-prime-axis-alignment-proof.md
@@ -26,15 +27,3 @@ proof_file: ../proofs/T07-prime-axis-alignment-proof.md
 ## Statement
 
 A strict geometric equivalence exists between the zero-residue of the odd leg (a) and the geometric axes of the parameter space (p, q) for prime moduli. It partitions the modular graph into interior nodes (where p, q != 0) and axis nodes. The origin point p ≡ 0 and q ≡ 0 is unreachable due to coprimality.
-
-## Proof
-
-See [T07-prime-axis-alignment-proof.md](../proofs/T07-prime-axis-alignment-proof.md).
-
-## Dependencies
-
-- [T06 — Modular Orbit Graph (Finite State Machine)](T06-modular-orbit-graph.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
