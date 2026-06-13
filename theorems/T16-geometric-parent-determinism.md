@@ -4,6 +4,7 @@ type: theorem
 title: Geometric Parent Determinism
 slug: geometric-parent-determinism
 depends_on: [T01]
+notation: ../glossary.md
 variables: [p, q, lambda]
 status: proven
 proof_file: ../proofs/T16-geometric-parent-determinism-proof.md
@@ -29,15 +30,3 @@ If `2 < lambda < 3`, the current node is a B-child.
 If `1 < lambda < 2`, the current node is a C-child.
 
 If `lambda = 3`, the node is the root v_root and has no parent.
-
-## Proof
-
-See [T16-geometric-parent-determinism-proof.md](../proofs/T16-geometric-parent-determinism-proof.md).
-
-## Dependencies
-
-- [T01 — Linearized Algebraic State Transition](T01-linearized-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
