@@ -4,6 +4,7 @@ type: theorem
 title: Prime Modular Orbit Cardinality
 slug: prime-orbit-cardinality
 depends_on: [T06, T07]
+notation: ../glossary.md
 variables: [M, Orbit_M]
 status: proven
 proof_file: ../proofs/T08-prime-orbit-cardinality-proof.md
@@ -23,16 +24,3 @@ proof_file: ../proofs/T08-prime-orbit-cardinality-proof.md
 ## Statement
 
 For an odd prime modulus M, the PPT tree projection explores the quadratic state space over the finite field of M. The theorem provides the exact count of states where the accumulated odd leg (v[2]) matches a specific residue, describing the probability distribution of the target residue within the orbit.
-
-## Proof
-
-See [T08-prime-orbit-cardinality-proof.md](../proofs/T08-prime-orbit-cardinality-proof.md).
-
-## Dependencies
-
-- [T06 — Modular Orbit Graph (Finite State Machine)](T06-modular-orbit-graph.md)
-- [T07 — Prime Modular Axis Alignment](T07-prime-axis-alignment.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
