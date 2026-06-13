@@ -4,6 +4,7 @@ type: theorem
 title: Multiple Swaps Modular Congruence
 slug: multiswap-congruence
 depends_on: [T12, T13]
+notation: ../glossary.md
 variables: [P_key, P_shadow, M_i, a_parent, b_parent]
 status: proven
 proof_file: ../proofs/T14-multiswap-congruence-proof.md
@@ -25,16 +26,3 @@ proof_file: ../proofs/T14-multiswap-congruence-proof.md
 ## Statement
 
 When a traversal path deviates from a key path via multiple substitutions (swaps) at different depths, the resulting leaf node maintains a congruence relative to the key node. The modulus of this congruence is the GCD of the moduli associated with each individual swap. The shadow path remains "locked" to the key path within the lattice grid defined by the shared divisors of the divergence points.
-
-## Proof
-
-See [T14-multiswap-congruence-proof.md](../proofs/T14-multiswap-congruence-proof.md).
-
-## Dependencies
-
-- [T12 — Path B/C Modular Congruence](T12-path-bc-congruence.md)
-- [T13 — Path A/B Modular Congruence](T13-path-ab-congruence.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
