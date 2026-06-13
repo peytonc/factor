@@ -7,7 +7,7 @@ as integer matrices **A**, **B**, **C** acting on `v`. The research goal is to l
 the node whose odd leg equals a known semiprime `a_target` whose factors are unknown.
 
 > **Symbol reference:** every variable used across the repository is defined once in
-> [`docs/glossary.md`](docs/glossary.md). Theorem and proof files reference it instead
+> [`glossary.md`](glossary.md). Theorem and proof files reference it instead
 > of re-defining symbols.
 
 ## Project Goal
