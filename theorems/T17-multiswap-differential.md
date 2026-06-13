@@ -4,6 +4,7 @@ type: theorem
 title: Multi-Swap Differential
 slug: multiswap-differential
 depends_on: [T11, T15]
+notation: ../glossary.md
 variables: [P_key, P_shadow, alpha_m, delta_m, e_m, M_m, sigma_m, R_m, Lambda]
 status: proven
 proof_file: ../proofs/T17-multiswap-differential-proof.md
@@ -36,16 +37,3 @@ v_shadow - v_key = Sum [ sigma_m * alpha_m * (R_m * delta_m) ]
 ```
 
 where the summation runs from m = 1 to k, and the vector difference is an explicit element of the lattice `Lambda = Z-span{ M_m * (R_m * e_m) }`.
-
-## Proof
-
-See [T17-multiswap-differential-proof.md](../proofs/T17-multiswap-differential-proof.md).
-
-## Dependencies
-
-- [T11 — Sibling Divergence](T11-sibling-divergence.md)
-- [T15 — Differential Suffix Propagation](T15-differential-suffix-propagation.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
