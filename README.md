@@ -4,8 +4,7 @@ Factor odd semiprimes by navigating the **Berggren tree of Primitive Pythagorean
 Triples (PPTs)** with linear factor-state vectors. Each tree node is encoded as a
 state vector `v = [p^2, q^2, a]^T`, and the three Berggren generators are realized
 as integer matrices **A**, **B**, **C** acting on `v`. The research goal is to locate
-the node whose odd leg equals a known semiprime `a_target` whose factors are unknown,
-using only shallow tree search plus modular and differential structure.
+the node whose odd leg equals a known semiprime `a_target` whose factors are unknown.
 
 > **Symbol reference:** every variable used across the repository is defined once in
 > [`docs/glossary.md`](docs/glossary.md). Theorem and proof files reference it instead
