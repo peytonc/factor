@@ -4,6 +4,7 @@ type: theorem
 title: Modular Algebraic State Transition
 slug: modular-state-transition
 depends_on: [T01]
+notation: ../glossary.md
 variables: [v, G, M, d]
 status: proven
 proof_file: ../proofs/T05-modular-state-transition-proof.md
@@ -21,15 +22,3 @@ proof_file: ../proofs/T05-modular-state-transition-proof.md
 ## Statement
 
 Establishes a homomorphism mapping the infinite PPT tree into a finite directed state-transition graph over Z/MZ. The linear algebraic structure of Theorem 1 is preserved under modular arithmetic. By projecting the state transitions onto a finite ring, the trajectory of any path in the infinite tree is mapped to a path within a bounded modular state space.
-
-## Proof
-
-See [T05-modular-state-transition-proof.md](../proofs/T05-modular-state-transition-proof.md).
-
-## Dependencies
-
-- [T01 — Linearized Algebraic State Transition](T01-linearized-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
