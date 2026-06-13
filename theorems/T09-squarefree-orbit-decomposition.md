@@ -4,6 +4,7 @@ type: theorem
 title: Square-Free Modular Orbit Decomposition
 slug: squarefree-orbit-decomposition
 depends_on: [T06, T08]
+notation: ../glossary.md
 variables: [M, O_M, O_pi, Phi]
 status: proven
 proof_file: ../proofs/T09-squarefree-orbit-decomposition-proof.md
@@ -27,16 +28,3 @@ proof_file: ../proofs/T09-squarefree-orbit-decomposition-proof.md
 The modular orbit of a square-free modulus M is isomorphic to the Cartesian product of the modular orbits of its prime factors. When M has no repeated prime factors, the global structure of the orbit space is uniquely determined by the atomic structures of its prime factors acting independently.
 
 **Corollary.** Since the generators {A, B, C} are elements of GL(3, Z), their inverses {A^-1, B^-1, C^-1} are also integer matrices. Therefore the isomorphism Phi preserves both forward transitions (`v_child = G . v_parent`) and inverse transitions (`v_parent = G^-1 . v_child`). The predecessors of a state modulo M are uniquely determined by the predecessors of its prime projections.
-
-## Proof
-
-See [T09-squarefree-orbit-decomposition-proof.md](../proofs/T09-squarefree-orbit-decomposition-proof.md).
-
-## Dependencies
-
-- [T06 — Modular Orbit Graph (Finite State Machine)](T06-modular-orbit-graph.md)
-- [T08 — Prime Modular Orbit Cardinality](T08-prime-orbit-cardinality.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
