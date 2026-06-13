@@ -1,4 +1,4 @@
-# Dependency Graph & Reading Order
+# Dependency Graph
 
 This document gives an AI agent (or reviewer) an explicit map of the logical
 structure so files can be read or validated in a valid order. Edges are taken from
