@@ -98,7 +98,7 @@ Integer matrices acting on the algebraic state vector `v = [p^2, q^2, a]^T`.
 ### `d` — tree depth
 - **Definition:** the number of generator applications from the root.
 
-## Modular Objects (used in T05–T10)
+## Modular Objects
 
 ### `M` — modulus
 - **Definition:** an odd integer modulus, typically `3 <= M < sqrt(a_target)`.
@@ -112,7 +112,7 @@ Integer matrices acting on the algebraic state vector `v = [p^2, q^2, a]^T`.
 ### `Phi`
 - **Definition:** the canonical CRT projection `O_M -> prod O_(component_i)`.
 
-## Differential Objects (used in T11–T17)
+## Differential Objects
 
 ### `delta_a`, `delta_b` — sibling-divergence vectors
 - **Definition:** `delta_a = [0, 8, 2]^T` (B vs C); `delta_b = [2, 6, 4]^T` (B vs A).
