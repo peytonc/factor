@@ -4,6 +4,7 @@ type: theorem
 title: Generalized Modular Orbit Decomposition
 slug: generalized-orbit-decomposition
 depends_on: [T09]
+notation: ../glossary.md
 variables: [M, Q_i, O_M, O_Qi, Phi]
 status: proven
 proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
@@ -27,15 +28,3 @@ proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
 ## Statement
 
 Generalizes the decomposition of any odd integer M by treating maximal prime powers (p^k) as atomic moduli. While the orbit modulo a composite M splits into orthogonal components, the orbit modulo a prime power p^k does not split; instead, it is a "lifted" structure of the base prime orbit. The global orbit is isomorphic to the Cartesian product of these prime power orbits.
-
-## Proof
-
-See [T10-generalized-orbit-decomposition-proof.md](../proofs/T10-generalized-orbit-decomposition-proof.md).
-
-## Dependencies
-
-- [T09 — Square-Free Modular Orbit Decomposition](T09-squarefree-orbit-decomposition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
