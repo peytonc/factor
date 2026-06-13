@@ -4,6 +4,7 @@ type: theorem
 title: Path A/B Modular Congruence
 slug: path-ab-congruence
 depends_on: [T11]
+notation: ../glossary.md
 variables: [P, Q_fork, Q_swap, R, v_parent, b_parent, M]
 status: proven
 proof_file: ../proofs/T13-path-ab-congruence-proof.md
@@ -27,15 +28,3 @@ proof_file: ../proofs/T13-path-ab-congruence-proof.md
 ## Statement
 
 If a single substitution is made between generator A and generator B at node v_parent, and all subsequent operations remain identical for both branches, then every resulting descendant node on the shadow path P_2 is congruent to the corresponding node on the original path P_1 modulo 2*b_parent. While the descendant values diverge rapidly in magnitude, their residues relative to twice the divergence point's even leg remain locked together for the remainder of the path.
-
-## Proof
-
-See [T13-path-ab-congruence-proof.md](../proofs/T13-path-ab-congruence-proof.md).
-
-## Dependencies
-
-- [T11 — Sibling Divergence](T11-sibling-divergence.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
