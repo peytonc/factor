@@ -4,6 +4,7 @@ type: theorem
 title: Linearized Algebraic State Transition
 slug: linearized-state-transition
 depends_on: []
+notation: ../glossary.md
 variables: [v, G, A, B, C, p, q, a]
 status: proven
 proof_file: ../proofs/T01-linearized-state-transition-proof.md
@@ -26,15 +27,3 @@ Matrix **A** preserves the factor p, increases a, and preserves orientation with
 Matrix **B** promotes the old q to the new p, increases a, and reverses orientation with det=-1.
 
 Matrix **C** promotes the old q to the new p, increases a, and preserves orientation with det(C)=1.
-
-## Proof
-
-See [T01-linearized-state-transition-proof.md](../proofs/T01-linearized-state-transition-proof.md).
-
-## Dependencies
-
-- None (foundational).
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
