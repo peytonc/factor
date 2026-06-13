@@ -4,6 +4,7 @@ type: theorem
 title: Non-Trivial Unique Path (Unique Existence)
 slug: nontrivial-path-existence
 depends_on: [T01]
+notation: ../glossary.md
 variables: [a_target, p_target, q_target]
 status: proven
 proof_file: ../proofs/T03-nontrivial-path-existence-proof.md
@@ -20,15 +21,3 @@ proof_file: ../proofs/T03-nontrivial-path-existence-proof.md
 ## Statement
 
 The non-trivial path is the unique finite sequence of state transition matrices starting at v_root and terminating at the node defined by the factors (p_target, q_target), which must contain at least one transition using generator B or C to satisfy the condition p_target > 1.
-
-## Proof
-
-See [T03-nontrivial-path-existence-proof.md](../proofs/T03-nontrivial-path-existence-proof.md).
-
-## Dependencies
-
-- [T01 — Linearized Algebraic State Transition](T01-linearized-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
