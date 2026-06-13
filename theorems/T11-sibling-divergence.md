@@ -4,6 +4,7 @@ type: theorem
 title: Sibling Divergence
 slug: sibling-divergence
 depends_on: [T01]
+notation: ../glossary.md
 variables: [delta_a, delta_b, a_parent, b_parent]
 status: proven
 proof_file: ../proofs/T11-sibling-divergence-proof.md
@@ -27,15 +28,3 @@ proof_file: ../proofs/T11-sibling-divergence-proof.md
 The algebraic difference between the B-child and C-child is strictly linear with respect to the parent's odd leg a.
 
 The algebraic difference between the B-child and A-child is strictly linear with respect to the parent's even leg b.
-
-## Proof
-
-See [T11-sibling-divergence-proof.md](../proofs/T11-sibling-divergence-proof.md).
-
-## Dependencies
-
-- [T01 — Linearized Algebraic State Transition](T01-linearized-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
