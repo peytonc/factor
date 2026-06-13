@@ -4,6 +4,7 @@ type: theorem
 title: Differential Suffix Propagation
 slug: differential-suffix-propagation
 depends_on: [T11]
+notation: ../glossary.md
 variables: [P_key, P_shadow, Q, Q_swap, R, v_parent, alpha, delta, sigma]
 status: proven
 proof_file: ../proofs/T15-differential-suffix-propagation-proof.md
@@ -28,15 +29,3 @@ proof_file: ../proofs/T15-differential-suffix-propagation-proof.md
 ## Statement
 
 Provides an exact linear error vector formula at the leaf level when a single traversal path deviates from a key sequence via an adjacent generator swap. The total algebraic discrepancy at the leaf level (v_shadow - v_key) equals the signed product of the directional operator sigma, the scalar geometric property of the parent node alpha, and the transformation of the structural divergence vector delta under the remaining suffix sequence R. This serves as a global algebraic tracking tool to calculate the structural distance between parallel matrix branches without recomputing entire paths.
-
-## Proof
-
-See [T15-differential-suffix-propagation-proof.md](../proofs/T15-differential-suffix-propagation-proof.md).
-
-## Dependencies
-
-- [T11 — Sibling Divergence](T11-sibling-divergence.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
