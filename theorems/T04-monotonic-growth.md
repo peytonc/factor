@@ -4,6 +4,7 @@ type: theorem
 title: Monotonic Growth
 slug: monotonic-growth
 depends_on: [T01]
+notation: ../glossary.md
 variables: [v, G, a, p, q]
 status: proven
 proof_file: ../proofs/T04-monotonic-growth-proof.md
@@ -22,15 +23,3 @@ proof_file: ../proofs/T04-monotonic-growth-proof.md
 ## Statement
 
 The odd leg a_d strictly increases at every step of the tree.
-
-## Proof
-
-See [T04-monotonic-growth-proof.md](../proofs/T04-monotonic-growth-proof.md).
-
-## Dependencies
-
-- [T01 — Linearized Algebraic State Transition](T01-linearized-state-transition.md)
-
-## Notation
-
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
