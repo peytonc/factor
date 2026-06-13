@@ -1,6 +1,6 @@
 # Mathematical Glossary
 
-Single source of truth for all notation used across the theorem and proof files.
+Defines the notation used across the theorem and proof files.
 Symbols are **not** re-defined elsewhere; every file references this document.
 
 > Convention: `v[i]` denotes the i-th component (0-indexed) of a state vector `v`.
