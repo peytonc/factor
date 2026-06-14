@@ -16,7 +16,7 @@ proof_file: ../proofs/T09-squarefree-orbit-decomposition-proof.md
 
 ## Definitions
 
-- Let `M` be any odd square-free integer with the prime factorization `M = p_1 * p_2 * ... * p_n`, where p_i are distinct primes.
+- Let `M` be any odd square-free integer with the prime factorization `M = pi_1 * pi_2 * ... * pi_n`, where pi_i are distinct primes.
 - Let `O_M = Orbit(M)` be the set of reachable states in the PPT graph modulo M.
 - Let `O_(p_i) = Orbit(p_i)` be the set of reachable states modulo the prime factor p_i.
 - Let `Phi : O_M -> O_(p_1) x ... x O_(p_n)` be the canonical projection map `v |-> (v mod p_1, ..., v mod p_n)`.
