@@ -14,7 +14,7 @@ the node whose odd leg equals a known semiprime `a_target` whose factors are unk
 
 - **Input:** an odd semiprime `a_target` (the odd leg `a` of an unknown PPT node).
 - **Output:** the non-trivial factor pair `(p_target, q_target)` with `1 < p_target < q_target`.
-- **Method:** navigate / constrain the PPT tree using the catalogued theorems below.
+- **Method:** navigate or constrain the PPT tree efficiently.
 
 ## Theorem Catalog
 
@@ -47,51 +47,4 @@ The logical reading / validation order Is defined in [`docs/dependency-graph.md`
 
 ## Numerical Validation
 
-Every theorem (T01–T17) has an automated numerical validator in
-[`validation/`](validation/). The suite is stdlib-only Python (no dependencies)
-and exercises each statement against exhaustive tree enumeration to a configurable
-depth plus seeded random deep-path trials:
-
-```bash
-python3 validation/run_validation.py            # defaults: depth 6, 400 trials, seed 20260610
-python3 validation/run_validation.py --depth 7 --trials 1000 --csv results.csv
-```
-
-The architecture (shared kernel vs. per-theorem logic), the exact checks performed
-per theorem, and honest scope notes on what numerics can and cannot certify are
-documented in [`validation/README.md`](validation/README.md). A GitHub Actions
-workflow ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs
-the suite on every push and pull request.
-
-## File & Metadata Conventions
-
-These conventions exist so an AI agent (or a human) can build a dependency map by
-reading front-matter alone, without parsing the full mathematics of each file.
-
-**Naming.** Files are named `T<NN>-<semantic-slug>` so the filename itself carries
-meaning for search/embeddings (e.g. `T05-modular-state-transition.md`).
-
-**YAML front-matter.** Every theorem and proof file begins with a machine-readable
-block:
-
-```yaml
----
-id: T05                                   # stable identifier
-type: theorem                             # theorem | proof
-title: Modular Algebraic State Transition
-slug: modular-state-transition
-depends_on: [T01]                         # upstream results this builds on
-variables: [v, G, M, d]                   # symbols used (defined in glossary)
-status: proven                            # "a proof file exists in this repo"
-proof_file: ../proofs/T05-modular-state-transition-proof.md
----
-```
-
-> `status: proven` means a written proof is present in `proofs/`. It records authoring
-> intent and the presence of a proof document — **not** an independent re-verification.
-> Maintainers should curate this field (e.g. `draft`, `under-review`, `proven`) as
-> review proceeds.
-
-**Cross-linking.** Theorem ⇄ proof links are relative; the `depends_on` list mirrors
-the edges in the dependency graph above, giving agents an explicit, machine-parsable
-map of the logical structure.
+Every theorem has an automated numerical validator [`validation/README.md`](validation/README.md).
