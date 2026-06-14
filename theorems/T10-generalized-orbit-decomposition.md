@@ -17,13 +17,13 @@ proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
 ## Definitions
 
 - Let `M` be any odd integer with the prime factorization `M = pi_1^k_1 * ... * pi_n^k_n`, where pi_i are distinct primes and k_i >= 1.
-- Let `Q_i = p_i^k_i` be the maximal prime power component of the modulus.
+- Let `omega_comp_i = p_i^k_i` be the maximal prime power component of the modulus.
 - Let `O_M = Orbit(M)` be the set of reachable states modulo M.
-- Let `O_(Q_i) = Orbit(Q_i)` be the set of reachable states modulo the prime power Q_i.
-- Let `Phi : O_M -> O_(Q_1) x ... x O_(Q_n)` be the canonical projection map `v |-> (v mod Q_1, ..., v mod Q_n)`.
-- `O_M ≅ prod O_(Q_i)` for `i = 1..n` is the generalized modular orbit decomposition.
-- `|O_(Q_i)| = p_i^(2(k_i - 1)) * |O_(p_i)|` is the cardinality of the prime power orbit (derived via Hensel lifting of non-singular points).
-- `|O_M| = prod |O_(Q_i)|` for `i = 1..n` is the generalized modular orbit cardinality.
+- Let `O_(omega_comp_i) = Orbit(omega_comp_i)` be the set of reachable states modulo the prime power omega_comp_i.
+- Let `Phi : O_M -> O_(omega_comp_1) x ... x O_(omega_comp_n)` be the canonical projection map `v |-> (v mod omega_comp_1, ..., v mod omega_comp_n)`.
+- `O_M ≅ prod O_(omega_comp_i)` for `i = 1..n` is the generalized modular orbit decomposition.
+- `|O_(omega_comp_i)| = p_i^(2(k_i - 1)) * |O_(p_i)|` is the cardinality of the prime power orbit (derived via Hensel lifting of non-singular points).
+- `|O_M| = prod |O_(omega_comp_i)|` for `i = 1..n` is the generalized modular orbit cardinality.
 
 ## Statement
 
