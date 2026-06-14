@@ -41,10 +41,6 @@ the node whose odd leg equals a known semiprime `a_target` whose factors are unk
 Each row links to its statement in [`theorems/`](theorems/); every statement links
 to its companion proof in [`proofs/`](proofs/).
 
-## Dependency Graph
-
-The logical reading / validation order Is defined in [`docs/dependency-graph.md`](docs/dependency-graph.md).
-
 ## Numerical Validation
 
-Every theorem has an automated numerical validator [`validation/README.md`](validation/README.md).
+Every theorem has an automated numerical validator documented at [`validation/README.md`](validation/README.md).
