@@ -5,7 +5,7 @@ title: Generalized Modular Orbit Decomposition
 slug: generalized-orbit-decomposition
 depends_on: [T09]
 notation: ../glossary.md
-variables: [M, Q_i, O_M, O_Qi, Phi]
+variables: [M, omega_comp_i, O_M, O_Qi, Phi]
 status: proven
 proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
 ---
