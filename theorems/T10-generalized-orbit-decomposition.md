@@ -16,7 +16,7 @@ proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
 
 ## Definitions
 
-- Let `M` be any odd integer with the prime factorization `M = p_1^k_1 * ... * p_n^k_n`, where p_i are distinct primes and k_i >= 1.
+- Let `M` be any odd integer with the prime factorization `M = pi_1^k_1 * ... * pi_n^k_n`, where pi_i are distinct primes and k_i >= 1.
 - Let `Q_i = p_i^k_i` be the maximal prime power component of the modulus.
 - Let `O_M = Orbit(M)` be the set of reachable states modulo M.
 - Let `O_(Q_i) = Orbit(Q_i)` be the set of reachable states modulo the prime power Q_i.
