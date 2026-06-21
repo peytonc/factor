@@ -1,0 +1,19 @@
+[project]
+name = "factor"
+version = "0.1.0"
+description = "Factorization via Berggren PPT-tree navigation."
+readme = "README.md"
+requires-python = ">=3.8"
+# Runtime is standard-library only; pytest is needed only to run the suite.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+# The suite lives in test/; add the repo root to sys.path so the ``test``
+# package (and its relative imports) resolve cleanly during collection.
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

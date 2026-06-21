@@ -1,28 +1,6 @@
 """
-Shared validation kernel
-========================
-
 Every theorem validator in ``validators/`` is assembled from the primitives in
-this module.  Nothing here encodes the *statement* of any particular theorem;
-this file is the common substrate shared by all 17 checks:
-
-  * generator matrices (factor-state A/B/C and geometric Berggren_A/B/C),
-    root vectors, divergence constants               -> used by all validators
-  * exact 3x3 integer linear algebra                 -> used by all validators
-  * full-tree enumeration with parent/generator info -> T01-T04, T11, T16
-  * factor recovery / PPT geometry helpers           -> T01, T03, T16
-  * modular-orbit machinery (orbits, inverses,
-    reachability, prime factorization)               -> T05-T10
-  * swap / differential helpers (adjacent partners,
-    sigma, alpha, suffix products, shadow builder)   -> T12-T15, T17
-  * deterministic RNG + path sampling                -> T05, T12-T15, T17
-  * a uniform ``Result`` type and check API          -> all validators + runner
-
-Theorem-specific predicates (the parts that are coded independently) live in
-the cluster modules ``validators/foundations.py``, ``validators/modular.py``
-and ``validators/differential.py``.
-
-Standard library only -- no third-party dependencies.
+this module.  Nothing here encodes the *statement* of any particular theorem.
 """
 from __future__ import annotations
 
@@ -35,7 +13,7 @@ Vec = Tuple[int, int, int]
 Mat = Tuple[Tuple[int, int, int], Tuple[int, int, int], Tuple[int, int, int]]
 
 # --------------------------------------------------------------------------
-# Constants (single source: docs/glossary.md)
+# Constants (single source: glossary.md at the repository root)
 # --------------------------------------------------------------------------
 
 A: Mat = ((1, 0, 0), (4, 1, 4), (2, 0, 1))
