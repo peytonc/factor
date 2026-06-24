@@ -29,4 +29,4 @@ Substituting this back into the difference equation gives `v_shadow - v_key = R 
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

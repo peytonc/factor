@@ -1,7 +1,3 @@
-"""
-Every theorem validator in ``validators/`` is assembled from the primitives in
-this module.  Nothing here encodes the *statement* of any particular theorem.
-"""
 from __future__ import annotations
 
 import math
@@ -313,7 +309,7 @@ class Result:
 @dataclass
 class Config:
     """Knobs shared by all validators (kept on one object so the runner can
-    pass a single value to every validation method)."""
+    pass a single value to every test method)."""
     depth: int = 6                    # full-tree enumeration depth (1,093 nodes)
     trials: int = 400                 # random trials per stochastic validator
     seed: int = 20260610              # fixed seed -> reproducible runs

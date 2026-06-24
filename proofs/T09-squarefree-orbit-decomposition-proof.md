@@ -26,4 +26,4 @@ While the matrix generators form a fiber product of index 2 within `prod PGL(2, 
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

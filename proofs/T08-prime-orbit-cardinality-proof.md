@@ -28,4 +28,4 @@ For any non-zero residue k, fixing one coordinate p (M-1 choices) uniquely deter
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

@@ -17,14 +17,14 @@ proof_file: ../proofs/T10-generalized-orbit-decomposition-proof.md
 ## Definitions
 
 - Let `M` be any odd integer with the prime factorization `M = pi_1^k_1 * ... * pi_n^k_n`, where pi_i are distinct primes and k_i >= 1.
-- Let `omega_comp_i = p_i^k_i` be the maximal prime power component of the modulus.
+- Let `omega_comp_i = pi_i^k_i` be the maximal prime power component of the modulus.
 - Let `O_M = Orbit(M)` be the set of reachable states modulo M.
 - Let `O_(omega_comp_i) = Orbit(omega_comp_i)` be the set of reachable states modulo the prime power omega_comp_i.
 - Let `Phi : O_M -> O_(omega_comp_1) x ... x O_(omega_comp_n)` be the canonical projection map `v |-> (v mod omega_comp_1, ..., v mod omega_comp_n)`.
 - `O_M ≅ prod O_(omega_comp_i)` for `i = 1..n` is the generalized modular orbit decomposition.
-- `|O_(omega_comp_i)| = p_i^(2(k_i - 1)) * |O_(p_i)|` is the cardinality of the prime power orbit (derived via Hensel lifting of non-singular points).
+- `|O_(omega_comp_i)| = pi_i^(2(k_i - 1)) * |O_(pi_i)|` is the cardinality of the prime power orbit (derived via Hensel lifting of non-singular points).
 - `|O_M| = prod |O_(omega_comp_i)|` for `i = 1..n` is the generalized modular orbit cardinality.
 
 ## Statement
 
-Generalizes the decomposition of any odd integer M by treating maximal prime powers (p^k) as atomic moduli. While the orbit modulo a composite M splits into orthogonal components, the orbit modulo a prime power p^k does not split; instead, it is a "lifted" structure of the base prime orbit. The global orbit is isomorphic to the Cartesian product of these prime power orbits.
+Generalizes the decomposition of any odd integer M by treating maximal prime powers (pi^k) as atomic moduli. While the orbit modulo a composite M splits into orthogonal components, the orbit modulo a prime power pi^k does not split; instead, it is a "lifted" structure of the base prime orbit. The global orbit is isomorphic to the Cartesian product of these prime power orbits.

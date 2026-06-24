@@ -31,4 +31,4 @@ Because the intervals (1, 2), (2, 3), and (3, inf) are disjoint, and lambda = 3 
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

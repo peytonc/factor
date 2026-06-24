@@ -43,4 +43,4 @@ to its companion proof in [`proofs/`](proofs/).
 
 ## Numerical Validation
 
-Every theorem has an automated numerical validator documented at [`validation/README.md`](validation/README.md).
+Every theorem has an automated numerical validator documented at [`tests/README.md`](tests/README.md).

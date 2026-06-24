@@ -28,4 +28,4 @@ Since each term (Phi_i * Delta_i) is a multiple of M_i, the total sum is divisib
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

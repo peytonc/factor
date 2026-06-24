@@ -25,4 +25,4 @@ For a PPT, the factors p and q are always coprime with `gcd(p, q) = 1`. Therefor
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

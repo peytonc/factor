@@ -25,4 +25,4 @@ Consider the inductive step for the descendants. Assume two state vectors v_k an
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

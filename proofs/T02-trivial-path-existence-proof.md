@@ -23,4 +23,4 @@ From Theorem 1, row 3 of Matrix A implies `a_next = a + 2p^2`. The first row of 
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

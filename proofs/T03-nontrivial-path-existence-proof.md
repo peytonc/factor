@@ -27,4 +27,4 @@ Because the Berggren tree provides a one-to-one mapping between Primitive Pythag
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

@@ -5,7 +5,7 @@ title: Multiple Swaps Modular Congruence
 slug: multiswap-congruence
 depends_on: [T12, T13]
 notation: ../glossary.md
-variables: [P_key, P_shadow, mu_even_i, a_parent, b_parent]
+variables: [P_key, P_shadow, mu__i, a_parent, b_parent]
 status: proven
 proof_file: ../proofs/T14-multiswap-congruence-proof.md
 ---
@@ -19,9 +19,9 @@ proof_file: ../proofs/T14-multiswap-congruence-proof.md
 - Let `P_key` be the target sequence of generators leading to a leaf node v_key.
 - Let `P_shadow` be a sequence differing from P_key by k distinct swaps (restricted to A vs B or B vs C) at depths d_1, ..., d_k.
 - Let `v_parent_i` be the parent node at depth d_i along the key path where the i-th swap occurs.
-- Let `mu_even_i` be the modular consequence of the i-th swap: if the swap is B vs C, `mu_even_i = 2*a_parent_i`; if the swap is A vs B, `mu_even_i = 2*b_parent_i`.
+- Let `mu_i` be the modular consequence of the i-th swap: if the swap is B vs C, `mu_i = 2*a_parent_i`; if the swap is A vs B, `mu_i = 2*b_parent_i`.
 - Let `v_key` and `v_shadow` be the resulting leaf state vectors.
-- `v_shadow ≡ v_key (mod GCD(mu_even_1, mu_even_2, ..., mu_even_k))`.
+- `v_shadow ≡ v_key (mod GCD(mu_1, mu_2, ..., mu_k))`.
 
 ## Statement
 

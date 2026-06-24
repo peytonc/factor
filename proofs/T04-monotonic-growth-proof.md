@@ -29,4 +29,4 @@ For C: `a_C = 2q^2 - a`. Since `a = pq` and q > p, `q^2 > a`. Thus `a_C > 2a - a
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

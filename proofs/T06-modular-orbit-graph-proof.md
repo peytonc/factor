@@ -25,4 +25,4 @@ Since all projected PPT nodes share the same quadratic invariant `v[0] . v[1] â‰
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

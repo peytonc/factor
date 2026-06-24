@@ -2,10 +2,7 @@
 Shared test helper: ``Checker``
 ===============================
 
-Second of the two shared reference pieces for the refactored validation suite
-(the first is the math kernel in ``validation/core.py``).
-
-Each theorem validator runs *many* sub-checks (often thousands of exact-integer
+Each theorem test runs *many* sub-checks (often thousands of exact-integer
 identities over an enumerated tree or random trials). A bare ``assert`` would
 abort at the first mismatch and hide how many cases actually pass. ``Checker``
 preserves the original suite's behaviour — count every sub-check, keep going on

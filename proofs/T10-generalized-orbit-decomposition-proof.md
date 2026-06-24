@@ -25,4 +25,4 @@ The cardinality |O_(Q_i)| is derived by observing that the PPT state vector v is
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

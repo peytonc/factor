@@ -25,4 +25,4 @@ By the property of linear modular arithmetic `v_(k+1) = G * v_k ≡ G * w_k = w_
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

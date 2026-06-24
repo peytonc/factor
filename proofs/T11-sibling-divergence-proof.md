@@ -25,4 +25,4 @@ The difference matrix between sibling generators is `Delta_b = B - A = [[-1,1,0]
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

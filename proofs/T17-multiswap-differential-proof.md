@@ -28,4 +28,4 @@ Substituting `delta_m = 2 * e_m` into the expression allows the scalar 2 to be g
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

@@ -18,10 +18,10 @@ proof_file: ../proofs/T09-squarefree-orbit-decomposition-proof.md
 
 - Let `M` be any odd square-free integer with the prime factorization `M = pi_1 * pi_2 * ... * pi_n`, where pi_i are distinct primes.
 - Let `O_M = Orbit(M)` be the set of reachable states in the PPT graph modulo M.
-- Let `O_(p_i) = Orbit(p_i)` be the set of reachable states modulo the prime factor p_i.
-- Let `Phi : O_M -> O_(p_1) x ... x O_(p_n)` be the canonical projection map `v |-> (v mod p_1, ..., v mod p_n)`.
-- `O_M ≅ prod O_(p_i)` for `i = 1..n` is the modular orbit decomposition.
-- `|O_M| = prod |O_(p_i)| = prod (p_i^2 - 1)/2` for `i = 1..n` is the modular orbit cardinality.
+- Let `O_(pi_i) = Orbit(pi_i)` be the set of reachable states modulo the prime factor pi_i.
+- Let `Phi : O_M -> O_(pi_1) x ... x O_(pi_n)` be the canonical projection map `v |-> (v mod pi_1, ..., v mod pi_n)`.
+- `O_M ≅ prod O_(pi_i)` for `i = 1..n` is the modular orbit decomposition.
+- `|O_M| = prod |O_(pi_i)| = prod (pi_i^2 - 1)/2` for `i = 1..n` is the modular orbit cardinality.
 
 ## Statement
 

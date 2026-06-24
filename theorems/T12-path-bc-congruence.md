@@ -16,12 +16,12 @@ proof_file: ../proofs/T12-path-bc-congruence-proof.md
 
 ## Definitions
 
-- Let `P` be a sequence of generators applied to v_root to reach a parent node v_parent at depth d.
+- Let `P` be a sequence of generators applied to v_root to reach a parent node v_parent at depth d (maintaining right-to-left multiplication order).
 - Let `Q_fork in {B, C}`.
 - Let `Q_swap in {B, C}` and `Q_swap != Q_fork`.
-- Let `R = G_(d+2) * G_(d+3) * ...` be an arbitrary sequence of subsequent generators applied after the fork.
+- Let `R = G_leaf * ... * G_(d+3) * G_(d+2)` be an arbitrary sequence of subsequent generators applied after the fork (maintaining right-to-left multiplication order).
 - Let `P_1 = R * Q_fork * P` be the original matrix sequence (multiplication order is reverse of path order).
-- Let `P_2 = R * Q_swap * P` be the shadow matrix sequence.
+- Let `P_2 = R * Q_swap * P` be the shadow matrix sequence (multiplication order is reverse of path order).
 - Let `v_i = P_1 * v_root` and `w_i = P_2 * v_root`.
 - `v_i ≡ w_i (mod 2*a_parent)` for any depth i > d.
 

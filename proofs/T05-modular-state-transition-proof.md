@@ -25,4 +25,4 @@ By induction, the state at any depth d is given by the composite transformation 
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).

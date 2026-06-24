@@ -23,4 +23,4 @@ Similar derivations hold for matrix A and matrix C. For matrix C, the new larger
 
 ## Notation
 
-All symbols are defined in [docs/glossary.md](../docs/glossary.md).
+All symbols are defined in [glossary.md](../glossary.md).
