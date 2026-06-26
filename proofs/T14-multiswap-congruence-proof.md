@@ -17,9 +17,9 @@ theorem_file: ../theorems/T14-multiswap-congruence.md
 
 From Theorems 12 and 13, a single swap at depth d_i introduces an algebraic difference vector Delta_i that is a scalar multiple of M_i.
 
-Because the state transitions (matrix multiplications) are linear maps over integers, the total difference between the shadow path and the key path at the leaf is the linear sum of the propagated differences from each swap `v_shadow - v_key = Sum [ Phi_i * Delta_i ]` for `i = 1 to k`, where Phi_i represents the transformation product of the subsequent generators along P_shadow after depth d_i.
+Because the state transitions (matrix multiplications) are linear maps over integers, the total difference between the shadow path and the key path at the leaf is the linear sum of the propagated differences from each swap `v_shadow - v_key = Sum [ R_i * Delta_i ]` for `i = 1 to k`, where R_i represents the transformation product of the subsequent generators along P_shadow after depth d_i.
 
-Since each term (Phi_i * Delta_i) is a multiple of M_i, the total sum is divisible by any integer that divides all M_i simultaneously. Therefore, the tightest guaranteed modular constraint is GCD(M_1, ..., M_k).
+Since each term (R_i * Delta_i) is a multiple of M_i, the total sum is divisible by any integer that divides all M_i simultaneously. Therefore, the tightest guaranteed modular constraint is GCD(M_1, ..., M_k).
 
 ## Cited Results
 

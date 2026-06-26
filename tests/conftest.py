@@ -18,9 +18,6 @@ Run the whole suite from the repository root with::
 """
 from __future__ import annotations
 
-import os
-import sys
-
 import pytest
 
 from core import Config

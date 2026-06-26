@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 
 from core import (
-    A, B, C, BERGGREN, GENS, GEO_ROOT, enumerate_tree, det3, geo_from_pq,
+    A, B, C, BERGGREN, GEO_ROOT, enumerate_tree, det3, geo_from_pq,
     mat_vec,
 )
 from checker import Checker

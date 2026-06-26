@@ -22,8 +22,8 @@ proof_file: ../proofs/T01-linearized-state-transition-proof.md
 
 Establishes a linear system by mapping the geometric properties of the PPT (c,b) to the algebraic factors (p^2, q^2).
 
-Matrix **A** preserves the factor p, increases a, and preserves orientation with det(A)=1.
+Matrix **A** preserves the factor p, increases a, and preserves orientation with det(A) = 1.
 
-Matrix **B** promotes the old q to the new p, increases a, and reverses orientation with det=-1.
+Matrix **B** promotes the old q to the new p, increases a, and reverses orientation with det(B) = -1.
 
-Matrix **C** promotes the old q to the new p, increases a, and preserves orientation with det(C)=1.
+Matrix **C** promotes the old q to the new p, increases a, and preserves orientation with det(C) = 1.

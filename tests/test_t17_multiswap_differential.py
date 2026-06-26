@@ -2,10 +2,11 @@
 
 Exact multi-swap superposition and lattice membership of every term, exhaustive
 over all length-5 keys x 2-swap combinations plus deep random trials. Also runs
-the literal-text reading of R_m (starting at the swapped generator) head to head
-with the corrected reading (consistent with T15's R): the corrected formula is
-exact in every case; the literal reading matches in none, confirming the
-off-by-one in the original T17 definition line.
+the strictly-after reading of R_m (the published T17 definition, R_m = G_n ...
+G_(d_m+2), matching T15's R) head to head with the alternative reading that
+starts AT the swapped generator (G_n ... G_(d_m+1)): the published formula is
+exact in every case; the alternative reading matches in none, guarding against a
+regression to the off-by-one form.
 """
 from __future__ import annotations
 
@@ -36,10 +37,11 @@ def _t17_predictions(key, shadow, idxs):
     """Return (exact diff, corrected prediction, literal-text prediction, lattice_ok).
 
     corrected: R_m = product of shadow suffix STRICTLY AFTER the swapped step
-               (G_n ... G_(d_m+2)) -- consistent with T15's definition of R.
-    literal:   R_m = product starting AT the swapped step (G_n ... G_(d_m+1))
-               as the T17 definition line reads, i.e. including the swapped
-               generator itself.
+               (G_n ... G_(d_m+2)) -- the published T17 definition, consistent
+               with T15's definition of R.
+    literal:   R_m = product starting AT the swapped step (G_n ... G_(d_m+1)),
+               i.e. including the swapped generator itself -- the off-by-one
+               form this test guards against.
     """
     diff = vec_sub(apply_path(shadow), apply_path(key))
     corrected = (0, 0, 0)
@@ -95,10 +97,10 @@ def test_t17(cfg):
         if diff == literal:
             literal_hits += 1
 
-    chk.note(f"corrected R_m (= G_n..G_(d_m+2), matching T15) exact in {total_cases}/{total_cases} cases "
+    chk.note(f"published R_m (= G_n..G_(d_m+2), matching T15) exact in {total_cases}/{total_cases} cases "
              f"({exhaustive_cases} exhaustive + {cfg.trials} random)")
-    chk.note(f"literal-text R_m (= G_n..G_(d_m+1), includes swapped step) matched only "
-             f"{literal_hits}/{total_cases} cases -> confirms the off-by-one in the T17 definition line")
+    chk.note(f"off-by-one R_m (= G_n..G_(d_m+1), includes swapped step) matched only "
+             f"{literal_hits}/{total_cases} cases -> guards against regressing the T17 definition line")
     # The corrected formula must be exact; the literal reading must match in no case.
     chk.check(literal_hits == 0,
               f"literal-text R_m unexpectedly matched in {literal_hits} cases")
