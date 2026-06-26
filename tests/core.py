@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Dict, Iterator, List, Optional, Sequence, Tuple
 
 Vec = Tuple[int, int, int]
@@ -271,39 +271,6 @@ def prime_power_factorization(n: int) -> List[Tuple[int, int]]:
     if n > 1:
         out.append((n, 1))
     return out
-
-
-# --------------------------------------------------------------------------
-# Uniform result type
-# --------------------------------------------------------------------------
-
-@dataclass
-class Result:
-    tid: str
-    title: str
-    checks: int = 0
-    failures: int = 0
-    notes: List[str] = field(default_factory=list)
-    _max_recorded: int = 5
-
-    def check(self, cond: bool, msg: str = "") -> bool:
-        self.checks += 1
-        if not cond:
-            self.failures += 1
-            if msg and len(self.notes) < self._max_recorded:
-                self.notes.append("FAIL: " + msg)
-        return cond
-
-    def note(self, msg: str) -> None:
-        self.notes.append(msg)
-
-    @property
-    def ok(self) -> bool:
-        return self.checks > 0 and self.failures == 0
-
-    @property
-    def status(self) -> str:
-        return "PASS" if self.ok else "FAIL"
 
 
 @dataclass

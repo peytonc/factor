@@ -17,9 +17,9 @@ Usage inside a test::
             chk.check(node.v[2] > node.parent.v[2], "a did not grow ...")
         chk.finalize()        # raises AssertionError iff any sub-check failed
 
-This mirrors the old ``core.Result.check`` API one-for-one, so porting a
-``validate_tNN(cfg) -> Result`` body into a ``test_tNN`` is a near-mechanical
-swap of ``r`` for ``chk`` plus a trailing ``chk.finalize()``.
+This mirrors the aggregate-and-report behaviour of the original suite: build a
+``Checker``, record sub-checks with ``chk.check(...)``, and end the test with a
+trailing ``chk.finalize()``.
 """
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ class Checker:
 
     def check(self, cond: bool, msg: str = "") -> bool:
         """Record one sub-check. Returns the (bool) condition so callers may
-        branch on it, exactly like the original ``Result.check``."""
+        branch on it."""
         self.checks += 1
         if not cond:
             self.failures += 1

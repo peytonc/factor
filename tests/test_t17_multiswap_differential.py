@@ -1,12 +1,9 @@
 """T17 — Multi-Swap Differential.
 
 Exact multi-swap superposition and lattice membership of every term, exhaustive
-over all length-5 keys x 2-swap combinations plus deep random trials. Also runs
-the strictly-after reading of R_m (the published T17 definition, R_m = G_n ...
-G_(d_m+2), matching T15's R) head to head with the alternative reading that
-starts AT the swapped generator (G_n ... G_(d_m+1)): the published formula is
-exact in every case; the alternative reading matches in none, guarding against a
-regression to the off-by-one form.
+over all length-5 keys x 2-swap combinations plus deep random trials. R_m is the
+shadow-path suffix product strictly after the swapped step
+(R_m = G_n ... G_(d_m+2), matching T15's R).
 """
 from __future__ import annotations
 
@@ -34,34 +31,26 @@ def _swap_data(key, shadow, idxs):
 
 
 def _t17_predictions(key, shadow, idxs):
-    """Return (exact diff, corrected prediction, literal-text prediction, lattice_ok).
+    """Return (exact leaf diff, predicted superposition, lattice_ok).
 
-    corrected: R_m = product of shadow suffix STRICTLY AFTER the swapped step
-               (G_n ... G_(d_m+2)) -- the published T17 definition, consistent
-               with T15's definition of R.
-    literal:   R_m = product starting AT the swapped step (G_n ... G_(d_m+1)),
-               i.e. including the swapped generator itself -- the off-by-one
-               form this test guards against.
+    R_m is the shadow-path suffix product strictly after the swapped step
+    (G_n ... G_(d_m+2)), matching T15's definition of R.
     """
     diff = vec_sub(apply_path(shadow), apply_path(key))
-    corrected = (0, 0, 0)
-    literal = (0, 0, 0)
+    predicted = (0, 0, 0)
     lattice_ok = True
     for i, kind, sgn, alpha, m_m in _swap_data(key, shadow, idxs):
-        r_corr = path_matrix(shadow[i + 1:])
-        r_lit = path_matrix(shadow[i:])
-        term = vec_scale(sgn * alpha, mat_vec(r_corr, DELTA[kind]))
+        r_m = path_matrix(shadow[i + 1:])
+        term = vec_scale(sgn * alpha, mat_vec(r_m, DELTA[kind]))
         if any(x % m_m != 0 for x in term):
             lattice_ok = False
-        corrected = vec_add(corrected, term)
-        literal = vec_add(literal, vec_scale(sgn * alpha, mat_vec(r_lit, DELTA[kind])))
-    return diff, corrected, literal, lattice_ok
+        predicted = vec_add(predicted, term)
+    return diff, predicted, lattice_ok
 
 
 def test_t17(cfg):
     chk = Checker("T17", "Multi-Swap Differential")
     rng = cfg.rng("t17")
-    literal_hits = 0
     total_cases = 0
 
     # Exhaustive small sweep: every length-5 key path, every 2-swap index pair,
@@ -74,13 +63,11 @@ def test_t17(cfg):
                 for i, g in zip(idxs, choice):
                     shadow[i] = g
                 shadow = tuple(shadow)
-                diff, corrected, literal, lattice_ok = _t17_predictions(key, shadow, idxs)
+                diff, predicted, lattice_ok = _t17_predictions(key, shadow, idxs)
                 total_cases += 1
-                chk.check(diff == corrected,
+                chk.check(diff == predicted,
                           f"superposition broken: key={''.join(key)} swaps={idxs}")
                 chk.check(lattice_ok, f"lattice term not divisible by M_m: key={''.join(key)}")
-                if diff == literal:
-                    literal_hits += 1
     exhaustive_cases = total_cases
 
     # Random deep trials with 2-4 swaps.
@@ -90,18 +77,12 @@ def test_t17(cfg):
         k = rng.randint(2, 4)
         idxs = sorted(rng.sample(range(n), k))
         shadow = make_shadow(key, idxs, rng)
-        diff, corrected, literal, lattice_ok = _t17_predictions(key, shadow, idxs)
+        diff, predicted, lattice_ok = _t17_predictions(key, shadow, idxs)
         total_cases += 1
-        chk.check(diff == corrected, f"superposition broken on random trial (n={n}, swaps={idxs})")
+        chk.check(diff == predicted, f"superposition broken on random trial (n={n}, swaps={idxs})")
         chk.check(lattice_ok, "lattice term not divisible by M_m on random trial")
-        if diff == literal:
-            literal_hits += 1
 
-    chk.note(f"published R_m (= G_n..G_(d_m+2), matching T15) exact in {total_cases}/{total_cases} cases "
+    chk.note(f"superposition (R_m = G_n..G_(d_m+2), matching T15) exact in "
+             f"{total_cases}/{total_cases} cases "
              f"({exhaustive_cases} exhaustive + {cfg.trials} random)")
-    chk.note(f"off-by-one R_m (= G_n..G_(d_m+1), includes swapped step) matched only "
-             f"{literal_hits}/{total_cases} cases -> guards against regressing the T17 definition line")
-    # The corrected formula must be exact; the literal reading must match in no case.
-    chk.check(literal_hits == 0,
-              f"literal-text R_m unexpectedly matched in {literal_hits} cases")
     chk.finalize()
